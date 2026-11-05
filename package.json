@@ -1,0 +1,22 @@
+{
+  "name": "webllm-bench",
+  "version": "0.1.0",
+  "description": "Benchmark GGUF language models inside a real browser: speed, memory, and safety checks.",
+  "license": "MIT",
+  "author": "Andre Cardenas",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "webllm-bench": "./src/cli.mjs"
+  },
+  "scripts": {
+    "bench": "node src/cli.mjs",
+    "test": "node --test test/core.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@wllama/wllama": "3.8.1"
+  }
+}

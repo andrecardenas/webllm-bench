@@ -1,0 +1,20 @@
+{
+  "qwen3-1.7b": {
+    "label": "Qwen3 1.7B Q4_K_M",
+    "license": "Apache-2.0",
+    "file": "Qwen3-1.7B-Q4_K_M.gguf",
+    "url": "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
+    "bytes": 1282439264,
+    "sha256": "d2387ca2dbfee2ffabce7120d3770dadca0b293052bc2f0e138fdc940d9bc7b5",
+    "assistantPrefix": "<think>\n\n</think>\n\n"
+  },
+  "smollm2-1.7b": {
+    "label": "SmolLM2 1.7B Instruct Q4_K_M",
+    "license": "Apache-2.0",
+    "file": "smollm2-1.7b-instruct-q4_k_m.gguf",
+    "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct-GGUF/resolve/main/smollm2-1.7b-instruct-q4_k_m.gguf",
+    "bytes": 1055609536,
+    "sha256": "decd2598bc2c8ed08c19adc3c8fdd461ee19ed5708679d1c54ef54a5a30d4f33",
+    "assistantPrefix": ""
+  }
+}

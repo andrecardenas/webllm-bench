@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>webllm-bench</title>
+<pre id="status">Starting</pre>
+<script type="module">
+const send = (event) => fetch("/event", { method: "POST", body: JSON.stringify(event) });
+const env = { type: "env", isolated: crossOriginIsolated, cores: navigator.hardwareConcurrency, webgpu: false };
+if (navigator.gpu) {
+  try {
+    const adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
+    if (adapter) {
+      env.webgpu = true;
+      env.adapter = { vendor: adapter.info?.vendor, description: adapter.info?.description, fallback: adapter.info?.isFallbackAdapter };
+    }
+  } catch (error) {
+    env.gpuError = String(error);
+  }
+}
+await send(env);
+const worker = new Worker("/worker.js", { type: "module" });
+worker.onmessage = (message) => {
+  send(message.data);
+  document.getElementById("status").textContent = message.data.type;
+};
+worker.onerror = (error) => send({ type: "fatal", message: `${error.message} at ${error.filename}:${error.lineno}` });
+</script>
